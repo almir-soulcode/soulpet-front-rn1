@@ -10,6 +10,7 @@ export function NovoPet() {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
   const navigate = useNavigate();
 
   function onSubmit(data) {
@@ -72,33 +73,37 @@ export function NovoPet() {
         <Form.Group className="mb-3">
           <Form.Label>Porte</Form.Label>
           <Form.Control
-            type="tel"
-            className={errors.telefone && "is-invalid"}
-            {...register("telefone", {
-              required: "O telefone é obrigatório.",
-              maxLength: { value: 255, message: "Limite de 255 caracteres." },
+            type="text"
+            className={errors.porte && "is-invalid"}
+            {...register("porte", {
+              required: "O porte é obrigatório.",
+              maxLength: { value: 100, message: "Limite de 255 caracteres." },
             })}
           />
-          {errors.telefone && (
+          {errors.porte && (
             <Form.Text className="invalid-feedback">
-              {errors.telefone.message}
+              {errors.porte.message}
             </Form.Text>
           )}
         </Form.Group>
 
         <Form.Group className="mb-3">
           <Form.Label>Data de Nascimento</Form.Label>
+          <Form.Control type="date" min="2003-01-01" />
+        </Form.Group>
+
+        <Form.Group className="mb-3">
+          <Form.Label>Identificação do Cliente</Form.Label>
           <Form.Control
-            type="text"
-            className={errors.endereco?.cidade && "is-invalid"}
-            {...register("endereco.cidade", {
-              required: "A cidade é obrigatória.",
-              maxLength: { value: 255, message: "Limite de 255 caracteres." },
+            type="number"
+            className={errors.clienteId && "is-invalid"}
+            {...register("clienteId", {
+              required: "O ID é obrigatório.",
             })}
           />
-          {errors.endereco?.cidade && (
+          {errors.clienteId && (
             <Form.Text className="invalid-feedback">
-              {errors.endereco?.cidade.message}
+              {errors.ClienteId.message}
             </Form.Text>
           )}
         </Form.Group>
