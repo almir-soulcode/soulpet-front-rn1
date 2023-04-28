@@ -58,13 +58,13 @@ export function NovoPet() {
             type="text"
             className={errors.tipo && "is-invalid"}
             {...register("tipo", {
-              required: "O e-mail é obrigatório.",
-              maxLength: { value: 255, message: "Limite de 255 caracteres." },
+              required: "O tipo é obrigatório.",
+              maxLength: { value: 100, message: "Limite de 100 caracteres." },
             })}
           />
-          {errors.email && (
+          {errors.tipo && (
             <Form.Text className="invalid-feedback">
-              {errors.email.message}
+              {errors.tipo.message}
             </Form.Text>
           )}
         </Form.Group>
