@@ -37,7 +37,7 @@ export function Pets() {
 
   function onDelete() {
     axios
-      .delete(`http://localhost:3001/clientes/${idPet}`)
+      .delete(`http://localhost:3001/pets/${idPet}`)
       .then((response) => {
         toast.success(response.data.message, {
           position: "bottom-right",
