@@ -32,6 +32,9 @@ export function NovoPet() {
       });
   }
 
+  const dayjs = require("dayjs");
+  const today = dayjs();
+
   return (
     <div className="container">
       <h1>Novo Pet</h1>
@@ -89,7 +92,15 @@ export function NovoPet() {
 
         <Form.Group className="mb-3">
           <Form.Label>Data de Nascimento</Form.Label>
-          <Form.Control type="date" min="2003-01-01" />
+          <Form.Control
+            type="date"
+            min={dayjs("2003-01-01").format("YYYY-MM-DD")}
+            max={today.format("YYYY-MM-DD")}
+            className={errors.data}
+            {...register("dataNasc", {
+              required: "Data Inválida",
+            })}
+          />
         </Form.Group>
 
         <Form.Group className="mb-3">
@@ -103,7 +114,7 @@ export function NovoPet() {
           />
           {errors.clienteId && (
             <Form.Text className="invalid-feedback">
-              {errors.ClienteId.message}
+              {errors.clienteId.message}
             </Form.Text>
           )}
         </Form.Group>
