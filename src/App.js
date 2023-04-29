@@ -4,8 +4,12 @@ import { Home } from "./pages/Home/Home";
 import { NovoCliente } from "./pages/NovoCliente/NovoCliente";
 import { Clientes } from "./pages/Clientes/Clientes";
 import { EditaCliente } from "./pages/EditaCliente/EditaCliente";
+import { NovoPet } from "./pages/NovoPet/NovoPet";
 import { NovoServicos } from "./pages/NovoServicos/NovoServicos";
+import { DetalheClientes } from "./pages/DetalheClientes/DetalheClientes";
+import { Pets } from "./pages/Pets/Pets";
 import { EditarServico } from "./pages/EditarServico/EditarServico";
+
 
 function App() {
   return (
@@ -14,8 +18,11 @@ function App() {
         <Route path="/" element={<Root />}>
           <Route path="/" element={<Home />} />
           <Route path="/clientes" element={<Clientes />} />
+          <Route path="/clientes/detalhes/:id" element={<DetalheClientes />} />
           <Route path="/clientes/novo" element={<NovoCliente />} />
           <Route path="/clientes/editar/:id" element={<EditaCliente />} />
+          <Route path="/pets" element={<Pets />} />
+          <Route path="/pets/novo" element={<NovoPet />} />
           <Route path="/servicos/novo" element={<NovoServicos />} />
           <Route path="/servicos/editar/:id" element={<EditarServico/>} />
         </Route>
